@@ -15,6 +15,23 @@ Criar um serviço capaz de:
 - `docs/`: documentação técnica (fluxos, arquitetura, requisitos).
 - `infra/`: scripts/manifests de infraestrutura (ex.: Docker, pipelines).
 
+## Executando localmente
+1. Crie e ative um ambiente virtual:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   ```
+2. Instale as dependências:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. (Opcional) Copie `.env.example` para `.env` e ajuste as variáveis de email/banco.
+4. Suba a API FastAPI em modo de desenvolvimento:
+   ```bash
+   uvicorn src.app.main:app --reload
+   ```
+5. Acesse `http://localhost:8000/docs` para testar as rotas de clientes, boletos e lembretes.
+
 ## Stack sugerida
 - **Backend**: Python com FastAPI para expor APIs (clientes/boletos) e documentação automática.
 - **Agendamentos**: APScheduler para rodar tarefas periódicas (envio de lembretes e reenvios).
